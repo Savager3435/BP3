@@ -17,3 +17,10 @@ returns = soup.find('div', attrs={'class':'percent-change-medium'})
 print(crypto,":")
 print(price.text)
 print(returns.text)
+
+again = input("Go again? Y/N: ")
+
+if again == "Y" :
+    import BP3.py
+else:
+    ()
