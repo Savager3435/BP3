@@ -20,11 +20,7 @@ print(returns.text)
 
 again = input("Go again? Y/N: ")
 
-if again == "Y":
+if again.upper() == "Y":
     import BP3.py
-if again == "y":
-    import BP3.py
-if again == "n":
-    exit()
-if again == "N":
+if again.upper() == "N":
     exit()
