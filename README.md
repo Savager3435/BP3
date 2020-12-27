@@ -13,6 +13,9 @@ To use it run the prereq.batch file to install all the prerequisites for it. The
 Currently supports Bitcoin, and Etherum. Stellar and XRP are in an experimental stage.
 Results are webscraped from Coindesk, and currently the way I have it setup it grabs the price once and then doesnt update it, a fix is being worked on. 
 
+When setting up the bot for your own usage you will need to create a new discord application and create your own discord bot token. The token input is at the very bottom of the 
+DiscordBot_Public file.  
+
 To trigger a command use the "$" prefix. Commands are NOT case sensitive.  
 
 All of the commands for the discord bot are:
