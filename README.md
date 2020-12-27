@@ -2,7 +2,8 @@
 
 ![Bot Profile Picture](https://images-ext-2.discordapp.net/external/hFZr30Jkd-GQ-MjcxGGWcPd8lbA_Raj0YGZnQbZ0Olw/%3Fsize%3D128/https/cdn.discordapp.com/avatars/790680677078532107/07e222e50bb47958248deec3f06858f4.png)
 
-Discord Bot and Python Script for getting crypto-prices, if you just want to webscrape the prices from the command line look at the plain "BP3" File.  
+Discord Bot and Python Script for getting crypto-prices, if you just want to webscrape the prices from the command line look at the plain "BP3" File. 
+Look in the "Prerequisite" folder for the batch files, run the coresponding one to install the prerequisites for each python script  
 
 ## **BP3 Script Information** 
 Supports any currency coindesk does. Results webscraped from Coindesk and although not always exact prices are updated everytime the script is ran. 
