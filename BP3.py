@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+#TODO, add functionality to automaticlly install prereqs 
 
 print('Welcome to:')
 print("""\
@@ -14,7 +14,8 @@ print("""\
     By: devastator35
 """)
 
-
+# still working on fixing this, currently just reads the past value so once it has been ran twice
+# the "n" command doesnt work
 def again():
     rerun = input("run again? Y/N: ")
     if rerun == "y" or "Y":
@@ -47,18 +48,3 @@ def pricething():
 
 
 pricething()
-
-
-# still working on fixing this, currently just reads the past set value so once it has been ran twice
-# the "n" command doesnt work
-
-def again():
-    alreadyrun = 'true'
-    rerun = input("run again? Y/N: ")
-    if rerun == "y" or "Y":
-        pricething()
-    if rerun != "y" or "Y":
-        exit()
-
-
-again()
