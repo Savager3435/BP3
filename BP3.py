@@ -2,25 +2,63 @@ import requests
 from bs4 import BeautifulSoup
 
 
-crypto = input("Enter the crypto you want the price of: ")
+print('Welcome to:')
+print("""\
+    .______   .______    ____    _______ 
+    |   _  \  |   _  \  |___ \  |   ____|
+    |  |_)  | |  |_)  |   __) | |  |__   
+    |   _  <  |   ___/   |__ <  |   __|  
+    |  |_)  | |  |       ___) | |  |____ 
+    |______/  | _|      |____/  |_______|
+    
+    By: devastator35
+""")
 
 
-URL = ('https://www.coindesk.com/price/' + crypto)
-r = requests.get(URL)
+def again():
+    rerun = input("run again? Y/N: ")
+    if rerun == "y" or "Y":
+        pricething()
+    if rerun != "y" or "Y":
+        exit()
 
-soup = BeautifulSoup(r.content, 'html.parser')
 
-price = soup.find('div', attrs = {'class':'price-large'})
+def pricething():
+    crypto = input("What crypto do you want info on: ")
 
-returns = soup.find('div', attrs={'class':'percent-change-medium'})
+    if crypto == "dev_exit":
+        exit()
+    else:
 
-print(crypto,":")
-print(price.text)
-print(returns.text)
+        URL = ('https://www.coindesk.com/price/' + crypto)
+    r = requests.get(URL)
 
-again = input("Go again? Y/N: ")
+    soup = BeautifulSoup(r.content, 'html.parser')
 
-if again.upper() == "Y":
-    import BP3.py
-if again.upper() == "N":
-    exit()
+    price = soup.find('div', attrs={'class': 'price-large'})
+
+    returns = soup.find('div', attrs={'class': 'percent-change-medium'})
+
+    print(crypto)
+    print("Price:", price.text)
+    print("24H Returns:", returns.text)
+
+    again()
+
+
+pricething()
+
+
+# still working on fixing this, currently just reads the past set value so once it has been ran twice
+# the "n" command doesnt work
+
+def again():
+    alreadyrun = 'true'
+    rerun = input("run again? Y/N: ")
+    if rerun == "y" or "Y":
+        pricething()
+    if rerun != "y" or "Y":
+        exit()
+
+
+again()
