@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-#TODO, add functionality to automaticlly install prereqs 
 
 print('Welcome to:')
 print("""\
@@ -10,39 +9,46 @@ print("""\
     |   _  <  |   ___/   |__ <  |   __|  
     |  |_)  | |  |       ___) | |  |____ 
     |______/  | _|      |____/  |_______|
-    
+         BP3 Experimental Edition
+  
     By: devastator35
 """)
 
-# still working on fixing this, currently just reads the past value so once it has been ran twice
-# the "n" command doesnt work
+
+# yes this is terrible, but it works
 def again():
     rerun = input("run again? Y/N: ")
-    if rerun == "y" or "Y":
+    if rerun == "y":
         pricething()
-    if rerun != "y" or "Y":
+    elif rerun == "Y":
+        pricething()
+    elif rerun == "n":
+        exit()
+    elif rerun == "N":
         exit()
 
 
 def pricething():
     crypto = input("What crypto do you want info on: ")
-
+    # need to add an exception catcher here
     if crypto == "dev_exit":
         exit()
     else:
 
-        URL = ('https://www.coindesk.com/price/' + crypto)
-    r = requests.get(URL)
+        url = ('https://www.coindesk.com/price/' + crypto)
+    r = requests.get(url)
 
     soup = BeautifulSoup(r.content, 'html.parser')
 
     price = soup.find('div', attrs={'class': 'price-large'})
-
     returns = soup.find('div', attrs={'class': 'percent-change-medium'})
-
-    print(crypto)
-    print("Price:", price.text)
-    print("24H Returns:", returns.text)
+    net = soup.find('div', attrs={'class': 'price-change-medium'})
+    try:
+        print("Price:", price.text)
+        print("24H Returns:", returns.text)
+        print("24H  Change:", net.text)
+    except AttributeError:
+        print('Error:', crypto, 'is not a supported currency')
 
     again()
 
