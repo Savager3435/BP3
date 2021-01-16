@@ -16,6 +16,7 @@ Currently there is an issue that causes the re-run functionality to ignore useri
 
 ## **Discord Bot Information** 
 BOT CODE IS POORLY MADE AND LACKING LOTS OF FUNCTIONALITY THE PLAIN SCRIPT HAS
+
 Currently supports Bitcoin, and Etherum. Stellar and XRP are in an experimental stage.
 Results are webscraped from Coindesk, and currently the way I have it setup it grabs the price once and then doesnt update it, a fix is being worked on. 
 
