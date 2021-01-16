@@ -11,6 +11,9 @@ Supports any currency coindesk supports. Results are webscraped from Coindesk an
 To use it run the prereq.batch file to install all prerequisites. Then open a new terminal where the script is located by erasing the adress of the folder and typing "cmd". 
 Once the terminal is open type BP3.py and follow the directions on the screen.
 
+Currently there is an issue that causes the re-run functionality to ignore userinput after being ran once. To stop the script you can type
+"dev_exit" and the script will end. 
+
 ## **Discord Bot Information** 
 BOT CODE IS POORLY MADE AND LACKING LOTS OF FUNCTIONALITY THE PLAIN SCRIPT HAS
 Currently supports Bitcoin, and Etherum. Stellar and XRP are in an experimental stage.
