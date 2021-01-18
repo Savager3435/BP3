@@ -36,12 +36,20 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$btc'):
+        if message.content.startswith('$btc'):
         global crypto
         crypto = 'bitcoin'
         price()
-        await message.channel.send(rprice)
-        print (rprice)
+
+        embed = discord.Embed(title='BitcoinInfo')
+        embed.set_thumbnail(
+            url='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png')
+        embed.add_field(name='Price:', value=rprice, inline=True)
+        embed.add_field(name='24H Return:', value=rreturn, inline=False)
+        embed.add_field(name='24H Net:', value=rnet, inline=True)
+        await message.channel.send(embed=embed)
+
+        print(rprice)
 
 
 client.run('YOUR DISCORD BOT TOKEN HERE')
