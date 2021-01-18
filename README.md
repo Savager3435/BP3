@@ -15,10 +15,10 @@ Currently there is an issue that causes the re-run functionality to ignore useri
 "dev_exit" and the script will end. 
 
 ## **Discord Bot Information** 
-BOT CODE IS POORLY MADE AND LACKING LOTS OF FUNCTIONALITY THE PLAIN SCRIPT HAS
+Bot is being rewritten because the old code was very bad
 
-Currently supports Bitcoin, and Etherum. Stellar and XRP are in an experimental stage.
-Results are webscraped from Coindesk, and currently the way I have it setup it grabs the price once and then doesnt update it, a fix is being worked on. 
+Currently supports only Bitcoin although a lot more are planned
+Results are webscraped from Coindesk, results may not be 100% accurate but they will be fairly close
 
 When setting up the bot for your own usage you will need to create a new discord application and create your own discord bot token. The token input is at the very bottom of the 
 DiscordBot_Public file.  
@@ -27,23 +27,8 @@ To trigger a command use the "$" prefix. Commands are NOT case sensitive.
 
 All of the commands for the discord bot are:
 
-  $info - 
-    displays information about the bot 
-
-  $supported - 
-    displays a list of the currently supported currencies 
-
-  $bitcoin - 
-    displays price of Bitcoin 
-
-  $eth/$etherum - 
-    displays price of Etherum 
-
-  $stellar - 
-    displays price of Stellar
-
-  $XPR - 
-    displays price of XPR
+  $btc - 
+    displays an embed of various Bitcoin information
 
 
 To come soon is 24 hour returns, and improved discord embeds. 
