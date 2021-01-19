@@ -34,7 +34,6 @@ def price():
     message = price.text
 
 
-bot = commands.Bot(command_prefix="$")
 
 
 @client.event
@@ -66,4 +65,4 @@ async def on_message(message):
         print(rprice)
 
 
-client.run('ODAwNjMxMDY2NjMzMzA2MTM0.YAU7yQ.rivcl7IH2qAO1OYfiwKU9MLThM0')
+client.run('Your token here')
