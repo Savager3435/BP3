@@ -5,9 +5,11 @@ from discord.ext import commands
 
 client = discord.Client()
 
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
 
 def price():
     url = ('https://www.coindesk.com/price/' + crypto)
@@ -20,9 +22,13 @@ def price():
     net = soup.find('div', attrs={'class': 'price-change-medium'})
 
     global rprice
-
     rprice = price.text
 
+    global rreturn
+    rreturn = returns.text
+
+    global rnet
+    rnet = net.text
 
     global message
     message = price.text
@@ -36,7 +42,15 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-        if message.content.startswith('$btc'):
+    def embedthing():
+        embed = discord.Embed(title='BitcoinInfo')
+        embed.set_thumbnail(
+            url='https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png')
+        embed.add_field(name='Price:', value=rprice, inline=True)
+        embed.add_field(name='24H Return:', value=rreturn, inline=False)
+        embed.add_field(name='24H Net:', value=rnet, inline=True)
+
+    if message.content.startswith('$btc'):
         global crypto
         crypto = 'bitcoin'
         price()
@@ -52,4 +66,4 @@ async def on_message(message):
         print(rprice)
 
 
-client.run('YOUR DISCORD BOT TOKEN HERE')
+client.run('ODAwNjMxMDY2NjMzMzA2MTM0.YAU7yQ.rivcl7IH2qAO1OYfiwKU9MLThM0')
