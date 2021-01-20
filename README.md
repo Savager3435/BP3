@@ -26,9 +26,18 @@ DiscordBot_Public file.
 To trigger a command use the "$" prefix. Commands are NOT case sensitive.  
 
 All of the commands for the discord bot are:
-
+  
+  $supported- 
+    displays a list of the currently supported currencies 
+  
+  All of the information in these is Price, 24 Hour Returns and 24 Hour Net Change
   $btc - 
     displays an embed of various Bitcoin information
-
+  $eth - 
+    displays an embed of various Ethereum information
+  $xrp - 
+    displays an embed of various XRP information
+  $chainlink
+    displays an embed of various Chainlink Information
 
 To come soon is 24 hour returns, and improved discord embeds. 
