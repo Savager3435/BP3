@@ -36,9 +36,38 @@ async def on_message(message):
         return
 
     global crypto
+    global conversion
 
     if message.content.startswith('$supported'):
         await message.channel.send('Currently supported are: Bitcoin, Ethereum, XRP, Stellar and Chainlink')
+
+    async def convert(mloc, camount):
+        global erate
+
+        crprice = float(rprice.replace('$', '').replace(',', ''))
+
+        erate = 1 / crprice
+
+        conversion = erate * float(camount)
+
+        cfamount: str = camount
+        namef = f'{cfamount} Dollars ='
+        conversionf = f'{conversion} {crypto}'
+
+        embed = discord.Embed(title='Conversion')
+        embed.add_field(name=namef, value=conversionf, inline=False)
+        embed.set_footer(text='BP3 | Data from Coindesk.com | Made By Devastator35#7251',
+                         icon_url="https://cdn.discordapp.com/avatars/602673057542307860/c364a91c8033e5a0ed167ba4ae256ea4.webp?size=128")
+
+        await message.channel.send(embed=embed)
+
+    if message.content.startswith('$convert'):
+        ccontent = message.content.split()
+        crypto = ccontent[1]
+        camount = ccontent[2]
+
+        price(crypto)
+        await convert(message.id, camount)
 
     async def dembed(name, image, mloc):
 
@@ -47,20 +76,26 @@ async def on_message(message):
         embed.add_field(name='Price:', value=rprice, inline=True)
         embed.add_field(name='24H Return:', value=rreturn, inline=False)
         embed.add_field(name='24H Net:', value=rnet, inline=True)
+        embed.set_footer(text='BP3 | Data from Coindesk.com | Made By Devastator35#7251',
+                         icon_url="https://cdn.discordapp.com/avatars/602673057542307860"
+                                  "/c364a91c8033e5a0ed167ba4ae256ea4.webp?size=128")
         channel = mloc
         await message.channel.send(embed=embed)
 
     if message.content.startswith('$btc'):
         price('bitcoin')
 
-        await dembed('Bitcoin','https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png', message.id)
+        await dembed('Bitcoin',
+                     'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png',
+                     message.id)
 
         print('Bitcoin:', rprice)
 
     if message.content.startswith('$eth'):
         price('ethereum')
 
-        await dembed('Ethereum', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg', message.id)
+        await dembed('Ethereum', 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg',
+                     message.id)
 
         print('Ethereum:', rprice)
 
@@ -86,6 +121,4 @@ async def on_message(message):
         print('Chainlink:', rprice)
 
 
-
-
-client.run('YOUR TOKEN HERE')
+client.run('YOUR_TOKEN_HERE')
