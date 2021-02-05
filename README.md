@@ -25,7 +25,8 @@ When setting up the bot for your own usage you will need to create a new discord
 
 To trigger a command use the "$" prefix. Commands are NOT case sensitive.  
 
-![enter image description here](https://i.imgur.com/nQk8ldX.png)
+![enter image description here](https://i.imgur.com/zJRiC4z.png)
+
 All of the commands for the discord bot are:
   
 	  $supported- 
@@ -51,7 +52,8 @@ All of the commands for the discord bot are:
 	  $chainlink
     displays an embed of various Chainlink Information
 
-![enter image description here](https://i.imgur.com/zJRiC4z.png)
+![enter image description here](https://i.imgur.com/nQk8ldX.png)
+
 Converts a given amount of crypto to USD. When converting **ALL** coinbase currencies are supported
   
 	  $convert {currency} {ammount} - 
