@@ -120,5 +120,20 @@ async def on_message(message):
 
         print('Chainlink:', rprice)
 
+    if message.content.startswith('$doge'):
+        price('dogecoin')
+
+        await dembed('Dogecoin', 'https://www.shareicon.net/data/2015/09/14/101012_doge_512x512.png', message.id)
+
+        print('Dogecoin:', rprice)
+
+    if message.content.startswith('$lite'):
+        price('litecoin')
+
+        await dembed('Litecoin', 'https://pbs.twimg.com/profile_images/1132071793781436416/8SXJLBPA.png', message.id)
+
+        print('Litecoin:', rprice)
+
+
 
 client.run('YOUR_TOKEN_HERE')
