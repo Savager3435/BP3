@@ -33,13 +33,19 @@ All of the commands for the discord bot are:
   All of the information is Price, 24 Hour Returns and 24 Hour Net Change
   
 	  $btc - 
-    displays an embed of various Bitcoin information
+    displays an embed with various Bitcoin information
   
 	  $eth - 
-    displays an embed of various Ethereum information
-  
+    displays an embed with various Ethereum information  
+	  
+	  $doge - 
+	displays an embed with various Dogecoin information
+
+	  $lite -
+	displays an embed with various Litecoin information
+	 
 	  $xrp - 
-    displays an embed of various XRP information
+    displays an embed with various XRP information
   
 	  $chainlink
     displays an embed of various Chainlink Information
