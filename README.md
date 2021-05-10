@@ -60,3 +60,20 @@ Converts a given amount of crypto to USD. When converting **ALL** coinbase curre
     displays an embed of various Bitcoin information
         
 
+## Adding your own crypto
+Adding support for another crypto to the BP3 discord bot is fairly easy. 
+Currently BP3 uses Coindesk for webscraping prices but changing to a 
+service with more coins is planned.
+Until it is changed you will be limited to Coindesk currencies. 
+### Template:
+
+    if message.content.startswith('$btc'):
+    
+    price('bitcoin')
+    
+    await dembed('Bitcoin',
+    
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png',
+    
+    message.id)
+Simply replace the bitcoin instances with whatever currency you are adding. The URL is used for adding a picture within the discord embed, so use a relavent picture.
