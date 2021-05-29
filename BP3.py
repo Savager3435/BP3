@@ -1,56 +1,69 @@
 import requests
 from bs4 import BeautifulSoup
 
+# TODO, add functionality to automaticlly install prereqs
+
 print('Welcome to:')
 print("""\
-    .______   .______    ____    _______ 
-    |   _  \  |   _  \  |___ \  |   ____|
-    |  |_)  | |  |_)  |   __) | |  |__   
-    |   _  <  |   ___/   |__ <  |   __|  
-    |  |_)  | |  |       ___) | |  |____ 
-    |______/  | _|      |____/  |_______|
-         BP3 Experimental Edition
-  
+    .______   .______    ____  
+    |   _  \  |   _  \  |___ \  
+    |  |_)  | |  |_)  |   __) |  
+    |   _  <  |   ___/   |__ <   
+    |  |_)  | |  |       ___) | 
+    |______/  | _|      |____/  
+
     By: devastator35
 """)
 
 
-# yes this is terrible, but it works
+# Yes this is poorly done, but it does work
 def again():
+    global rerun
     rerun = input("run again? Y/N: ")
-    if rerun == "y":
-        pricething()
-    elif rerun == "Y":
-        pricething()
-    elif rerun == "n":
-        exit()
-    elif rerun == "N":
-        exit()
+    if rerun == "Y" or "y" or "N" or "n":
+        if rerun == 'y':
+            pricething()
+        else:
+            exit()
+    else:
+        print('Error: Invalid Input')
 
 
 def pricething():
     crypto = input("What crypto do you want info on: ")
-    # need to add an exception catcher here
+
     if crypto == "dev_exit":
         exit()
     else:
 
-        url = ('https://www.coindesk.com/price/' + crypto)
+        url = ('https://coinmarketcap.com/currencies/' + crypto)
+
     r = requests.get(url)
 
     soup = BeautifulSoup(r.content, 'html.parser')
 
-    price = soup.find('div', attrs={'class': 'price-large'})
-    returns = soup.find('div', attrs={'class': 'percent-change-medium'})
-    net = soup.find('div', attrs={'class': 'price-change-medium'})
-    try:
-        print("Price:", price.text)
-        print("24H Returns:", returns.text)
-        print("24H  Change:", net.text)
-    except AttributeError:
-        print('Error:', crypto, 'is not a supported currency')
+    price = soup.find('div', attrs={'class': 'priceValue___11gHJ'})
+
+    returns = soup.find('span', attrs={'class': 'sc-1v2ivon-0 fJLBDK'})
+
+    marketcap = soup.find('div', attrs={'class': 'statsValue___2iaoZ'})
+    marketcapchange = soup.find('span', attrs={'class': 'qe1dn9-0 RYkpI'})
+
+
+    print(crypto + ": ")
+    print("")
+    print("PRICE (USD): " + price.text)
+    print("24 HOUR CHANGE: " + returns.text)
+    print("")
+    print("VOLUME (USD): " + marketcap.text)
+    print("VOLUME CHANGE: " + marketcapchange.text)
+    print("")
+
 
     again()
 
 
-pricething()
+try:
+    pricething()
+except AttributeError:
+    print("BP3 was unable to process that input, try using a valid crypto or the full name instead of the symbol.")
