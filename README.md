@@ -64,8 +64,8 @@ Converts a given amount of crypto to USD. When converting **ALL** coinbase curre
 
 ## Adding your own crypto
 Adding support for another crypto to the BP3 Discord bot is fairly easy. 
-Currently BP3 uses Coindesk for webscraping prices but changing to a 
-service with more coins is planned.
+Currently the Discord bot uses Coindesk for webscraping prices but changing to a 
+service with more coins is planned. (Normal BP3 has already transitioned)
 Until it is changed you will be limited to Coindesk currencies. 
 ### Template:
 
